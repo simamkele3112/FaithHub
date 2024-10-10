@@ -1,11 +1,21 @@
 /* Footer.css */
 .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-  }
-  
+  background-color: #008B8B; /* Dark cyan */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative; /* Change to relative for correct positioning */
+  width: 100%;
+  bottom: 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 20px; /* Adjust size as needed */
+}

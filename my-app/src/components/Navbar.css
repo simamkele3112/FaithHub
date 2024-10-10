@@ -1,12 +1,36 @@
 /* Navbar.css */
 .navbar {
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  .navbar a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-  }
-  
+  background-color: #008B8B; /* Dark cyan background */
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0; /* Place Navbar on the left side */
+  width: 100%; /* Full width for horizontal layout */
+  display: flex;
+  justify-content: space-between; /* Space between Navbar and SIMA'S SPA text */
+  align-items: center; /* Align items vertically centered */
+  z-index: 1000; /* Ensure Navbar stays on top */
+}
+
+.navbar-links {
+  display: flex; /* Flexbox for horizontal links */
+}
+
+.navbar a {
+  color: white;
+  margin-right: 20px; /* Space between links */
+  text-decoration: none;
+  padding: 10px;
+}
+
+.navbar a:hover {
+  background-color: #005f5f; /* Darker cyan for hover effect */
+  transition: 0.3s ease;
+}
+
+.brand-name {
+  color: white;
+  font-size: 24px;
+  margin-right: 20px;
+  font-weight: bold;
+}

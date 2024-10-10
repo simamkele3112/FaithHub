@@ -1,8 +1,21 @@
 // Pages/HomePage.js
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import QuoteWidget from '../components/QuoteWidget';
 
-const HomePage = () => {
+const HomePage = ({ user }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login'); // Redirect to login if not logged in
+    }
+  }, [user, navigate]);
+
+  if (!user) {
+    return null; // Render nothing while redirecting
+  }
+
   return (
     <div>
       <h1>Bible Verse of the Day</h1>
