@@ -1,10 +1,10 @@
-before accessing the pages enter the correct creditaials which are,username: user@example.com   password:password123
+Before accessing the pages enter the correct creditaials which are,username: user@example.com   password: password123
 
 I fetch the data from external API's, so firstly you can navigate and check if the songs are being fetch from iTunes API, and in home page the verse if being fetched form the Bible API bible-api.com., and and the books, for now I've use external API's which sometimes restrit me from fetching from them.
 
-Please for now, the userProfile just enter exactly the way I wrote the username(user@example.com) and the password(password123) to access the pages.
+Please for now, the userProfile just enter exactly the way I wrote the username:user@example.com and the password:password123 to access the pages.
 
-On the aboutPage you will get the idea behide this Single Page Application as I'm in a proccess of make it user friendly.
+On the AboutPage you will get the idea behide this Single Page Application(SPA) as I'm in a proccess of making it user friendly.
 
 
 
