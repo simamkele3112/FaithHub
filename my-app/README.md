@@ -1,3 +1,13 @@
+before accessing the pages enter the correct creditaials which are,username: user@example.com   password:password123
+
+I fetch the data from external API's, so firstly you can navigate and check if the songs are being fetch from iTunes API, and in home page the verse if being fetched, and and the books, for now I've use external API's which sometimes restrit me from fetchingtheir data
+
+Please for now, the userProfile just enter exactly the way I wrong the username and the login
+
+on thee about you will get the idea behide this Single Page Application as I'm in a proccess of make it perfect.Thank you.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
