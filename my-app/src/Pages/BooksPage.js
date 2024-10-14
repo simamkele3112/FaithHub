@@ -9,14 +9,18 @@ const BooksPage = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('https://openlibrary.org/subjects/love.json?limit=10'); // Fetches books on 'love' topic
+        const response = await fetch(
+          'https://www.googleapis.com/books/v1/volumes?q=love&maxResults=10' // Fetch books on 'love' from Google Books API
+        );
         if (!response.ok) {
           throw new Error('Failed to fetch books');
         }
         const data = await response.json();
-        setBooks(data.works); // Open Library API returns a "works" array
+        console.log(data); // Log the entire response to inspect the structure
+        setBooks(data.items || []); // Check if 'items' exists in response
         setLoading(false);
       } catch (error) {
+        console.error('Error fetching books:', error); // Log the error for debugging
         setError(error.message);
         setLoading(false);
       }
@@ -35,12 +39,12 @@ const BooksPage = () => {
 
   return (
     <div>
-      <h1>Free Books on Love (Open Library)</h1>
+      <h1>Free Books on Love (Google Books)</h1>
       <ul>
         {books.map((book, index) => (
           <li key={index}>
-            <a href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
-              {book.title}
+            <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">
+              {book.volumeInfo.title}
             </a>
           </li>
         ))}
