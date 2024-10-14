@@ -10,14 +10,17 @@ const BooksPage = () => {
     const fetchBooks = async () => {
       try {
         const response = await fetch(
-          'https://www.googleapis.com/books/v1/volumes?q=love&maxResults=10' // Fetch books on 'love' from Google Books API
+          'https://openlibrary.org/search.json?q=love&limit=10' // Fetch books with the search term 'love' from Open Library
         );
         if (!response.ok) {
           throw new Error('Failed to fetch books');
         }
         const data = await response.json();
-        console.log(data); // Log the entire response to inspect the structure
-        setBooks(data.items || []); // Check if 'items' exists in response
+        if (data.docs) {
+          setBooks(data.docs); // Check if 'docs' (the books list) exists and set the books state
+        } else {
+          setError('No books found'); // Handle case where no books are returned
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching books:', error); // Log the error for debugging
@@ -39,12 +42,16 @@ const BooksPage = () => {
 
   return (
     <div>
-      <h1>Free Books on Love (Google Books)</h1>
+      <h1>Free Books on Love (Open Library)</h1>
       <ul>
         {books.map((book, index) => (
           <li key={index}>
-            <a href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">
-              {book.volumeInfo.title}
+            <a
+              href={`https://openlibrary.org${book.key}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {book.title} by {book.author_name ? book.author_name.join(', ') : 'Unknown Author'}
             </a>
           </li>
         ))}
@@ -54,3 +61,4 @@ const BooksPage = () => {
 };
 
 export default BooksPage;
+
