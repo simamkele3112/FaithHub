@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import './LoginPage.css'; // Import the stylesheet
 
 const LoginPage = ({ setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
-  const validCredentials = {
-    username: 'user@example.com',
-    password: 'password123',
-  };
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = () => {
-    if (username === validCredentials.username && password === validCredentials.password) {
-      setUser({ name: 'John Doe', email: username });
+    if (username && password) {
+      // Set the user with additional details
+      setUser({ 
+        name: 'John Doe', 
+        email: username, 
+        joinDate: new Date().toLocaleDateString() // Placeholder for the join date
+      });
+
+      // Redirect the user to the home page or a specific page after login
+      navigate('/'); // Redirect to the homepage
     } else {
-      alert('Incorrect credentials. Please try again.');
+      alert('Please enter a valid username and password.');
     }
   };
 
@@ -30,7 +35,7 @@ const LoginPage = ({ setUser }) => {
         />
         <input
           type="password"
-          placeholder="Password (e.g., password123)"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

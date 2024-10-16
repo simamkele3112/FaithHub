@@ -1,36 +1,41 @@
-/* Navbar.css */
 .navbar {
-  background-color: #008B8B; /* Dark cyan background */
-  padding: 10px;
+  background-color: #008b8b;
+  padding: 10px 20px; /* More padding to space out the navbar */
+  display: flex;
+  justify-content: space-between; /* Align brand to the left and links to the right */
+  align-items: center; /* Vertically center the items */
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 0; /* Place Navbar on the left side */
-  width: 100%; /* Full width for horizontal layout */
-  display: flex;
-  justify-content: space-between; /* Space between Navbar and SIMA'S SPA text */
-  align-items: center; /* Align items vertically centered */
-  z-index: 1000; /* Ensure Navbar stays on top */
+  left: 0;
+  z-index: 1000; /* Ensure it's on top */
 }
 
 .navbar-links {
-  display: flex; /* Flexbox for horizontal links */
+  display: flex;
+  gap: 15px; /* Space out the links */
 }
 
 .navbar a {
   color: white;
-  margin-right: 20px; /* Space between links */
   text-decoration: none;
-  padding: 10px;
+  padding: 10px 15px; /* Padding for clickable area */
+  font-size: 16px; /* Adjust font size for better readability */
 }
 
 .navbar a:hover {
-  background-color: #005f5f; /* Darker cyan for hover effect */
-  transition: 0.3s ease;
+  background-color: #005f5f;
+  border-radius: 4px; /* Rounded corners for the hover effect */
+  transition: background-color 0.3s ease;
 }
 
 .brand-name {
-  color: white;
   font-size: 24px;
-  margin-right: 20px;
+  color: white;
   font-weight: bold;
+}
+
+/* Ensure the main content is not hidden under the fixed navbar */
+.body-content {
+  padding-top: 70px; /* Space equal to the height of the navbar */
 }

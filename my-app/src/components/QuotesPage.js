@@ -5,19 +5,19 @@ const QuotesPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = 'https://cors-anywhere.herokuapp.com/https://quotes.rest/qod?language=en';
+    const url = 'https://api.quotable.io/random'; // Updated quote API without CORS issue
 
     fetch(url)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Failed to fetch the quote');
         }
         return response.json();
       })
-      .then(data => {
-        setQuote(data.contents.quotes[0].quote);
+      .then((data) => {
+        setQuote(data.content);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error fetching the quote:', error);
         setError('Failed to fetch the quote');
       });

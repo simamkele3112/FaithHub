@@ -1,8 +1,20 @@
-/* QuoteWidget.css */
 .quote-widget {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-  }
-  
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.quote-widget button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #008b8b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.quote-widget button:hover {
+  background-color: #005f5f;
+}

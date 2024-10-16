@@ -1,4 +1,3 @@
-// components/QuoteWidget.js
 import React from 'react';
 import './QuoteWidget.css';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route,  } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './Pages/HomePage';
@@ -9,8 +9,9 @@ import BooksPage from './Pages/BooksPage';
 import SongsPage from './Pages/SongsPage';
 import RecommendationsPage from './Pages/RecommendationsPage';
 import AboutPage from './Pages/AboutPage';
-import LoginPage from './Pages/LoginPage'; // Import LoginPage
-import UserProfilePage from './Pages/UserProfilePage'; // Import UserProfilePage
+import LoginPage from './Pages/LoginPage';
+import UserProfilePage from './Pages/UserProfilePage';
+import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
 
 const App = () => {
   const [user, setUser] = useState(null); // Manage logged-in user state
@@ -18,24 +19,78 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Routes>
-        {/* Route for login page */}
-        <Route path="/login" element={<LoginPage setUser={setUser} />} />
+      <div className="body-content"> {/* Add the body-content div here */}
+        <Routes>
+          {/* Public Route for login page */}
+          <Route path="/login" element={<LoginPage setUser={setUser} />} />
 
-        {/* Protect the HomePage */}
-        <Route path="/" element={user ? <HomePage user={user} /> : <LoginPage setUser={setUser} />} />
-
-        {/* Protect the other routes, redirect to login if not logged in */}
-        <Route path="/topics" element={user ? <TopicsPage /> : <LoginPage setUser={setUser} />} />
-        <Route path="/quotes" element={user ? <QuotesPage /> : <LoginPage setUser={setUser} />} />
-        <Route path="/books" element={user ? <BooksPage /> : <LoginPage setUser={setUser} />} />
-        <Route path="/songs" element={user ? <SongsPage /> : <LoginPage setUser={setUser} />} />
-        <Route path="/recommendations" element={user ? <RecommendationsPage /> : <LoginPage setUser={setUser} />} />
-        <Route path="/about" element={user ? <AboutPage /> : <LoginPage setUser={setUser} />} />
-
-        {/* User profile page */}
-        <Route path="/profile" element={user ? <UserProfilePage user={user} /> : <LoginPage setUser={setUser} />} />
-      </Routes>
+          {/* Protect routes by wrapping them inside ProtectedRoute */}
+          <Route 
+            path="/" 
+            element={
+              <ProtectedRoute user={user}>
+                <HomePage user={user} />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/topics" 
+            element={
+              <ProtectedRoute user={user}>
+                <TopicsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/quotes" 
+            element={
+              <ProtectedRoute user={user}>
+                <QuotesPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/books" 
+            element={
+              <ProtectedRoute user={user}>
+                <BooksPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/songs" 
+            element={
+              <ProtectedRoute user={user}>
+                <SongsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/recommendations" 
+            element={
+              <ProtectedRoute user={user}>
+                <RecommendationsPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/about" 
+            element={
+              <ProtectedRoute user={user}>
+                <AboutPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/profile" 
+            element={
+              <ProtectedRoute user={user}>
+                <UserProfilePage user={user} />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

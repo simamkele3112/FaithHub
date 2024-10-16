@@ -5,6 +5,7 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
+      <div className="brand-name">SIMA'S SPA</div>
       <div className="navbar-links">
         <Link to="/">Home</Link>
         <Link to="/topics">Topics</Link>
@@ -14,11 +15,9 @@ const Navbar = () => {
         <Link to="/recommendations">Recommendations</Link>
         <Link to="/about">About</Link>
       </div>
-      <div className="brand-name">
-        SIMA'S SPA
-      </div>
     </nav>
   );
 };
 
 export default Navbar;
+ 
