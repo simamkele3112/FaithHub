@@ -4,7 +4,7 @@
   color: white;
   text-align: center;
   padding: 10px;
-  position: relative; /* Change to relative for correct positioning */
+  position: fixed; /* Change to relative for correct positioning */
   width: 100%;
   bottom: 0;
 }

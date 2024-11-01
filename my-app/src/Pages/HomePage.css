@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: center; /* Centers content vertically */
   align-items: center; /* Centers content horizontally */
-  min-height: 100vh; /* Takes up the full viewport height */
+  min-height: 100; /* Takes up the full viewport height */
   padding: 20px;
   position: relative;
-  z-index: 1;
+  z-index: -1;
   color: rgb(27, 18, 18);
   text-align: center;
 }
