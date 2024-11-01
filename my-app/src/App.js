@@ -1,5 +1,6 @@
+// App.js
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './Pages/HomePage';
@@ -11,7 +12,11 @@ import RecommendationsPage from './Pages/RecommendationsPage';
 import AboutPage from './Pages/AboutPage';
 import LoginPage from './Pages/LoginPage';
 import UserProfilePage from './Pages/UserProfilePage';
-import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
+import './App.css'; // Import CSS file for styling the body-content
+
+const ProtectedRoute = ({ user, children }) => {
+  return user ? children : <Navigate to="/login" />;
+};
 
 const App = () => {
   const [user, setUser] = useState(null); // Manage logged-in user state
@@ -19,12 +24,10 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <div className="body-content"> {/* Add the body-content div here */}
+      <div className="body-content"> {/* body-content div for styling */}
         <Routes>
-          {/* Public Route for login page */}
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
 
-          {/* Protect routes by wrapping them inside ProtectedRoute */}
           <Route 
             path="/" 
             element={

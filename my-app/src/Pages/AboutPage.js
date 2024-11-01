@@ -1,8 +1,10 @@
+// AboutPage.js
 import React from 'react';
+import './AboutPage.css'; // Import a CSS file for styling if needed
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="about-page">
       <h1>About Us</h1>
       <p>
         Welcome to our application, a dynamic platform designed to provide users with a seamless and interactive experience. 
@@ -29,4 +31,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-

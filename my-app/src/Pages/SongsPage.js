@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
 const SongsPage = () => {
-  const [songs, setSongs] = useState([]);  // State to store songs
-  const [loading, setLoading] = useState(true);  // State for loading status
-  const [error, setError] = useState(null);  // State for handling errors
+  const [songs, setSongs] = useState([]); // State to store songs
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for handling errors
 
   // useEffect hook to fetch data from an API
   useEffect(() => {
     // Define the async function to fetch data
     const fetchSongs = async () => {
       try {
-        const response = await fetch('https://itunes.apple.com/search?term=gospel&media=music&limit=5');
+        const response = await fetch('https://itunes.apple.com/search?term=christian&media=music&limit=10');
+        if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        setSongs(data.results);  // Update the songs state with the fetched data
-        setLoading(false);  // Stop loading once data is fetched
+        setSongs(data.results); // Update the songs state with the fetched data
+        setLoading(false); // Stop loading once data is fetched
       } catch (err) {
         setError('Failed to load songs');
         setLoading(false);
       }
     };
 
-    fetchSongs();  // Call the fetch function
-  }, []);  // Empty dependency array to run the effect only once
+    fetchSongs(); // Call the fetch function
+  }, []); // Empty dependency array to run the effect only once
 
   // Handle loading state
   if (loading) {
@@ -50,5 +51,3 @@ const SongsPage = () => {
 };
 
 export default SongsPage;
-
-
