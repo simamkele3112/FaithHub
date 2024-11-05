@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import './SongsPage.css';
 
 const SongsPage = () => {
   const [songs, setSongs] = useState([]); // State to store songs
   const [loading, setLoading] = useState(true); // State for loading status
   const [error, setError] = useState(null); // State for handling errors
 
-  // useEffect hook to fetch data from an API
   useEffect(() => {
-    // Define the async function to fetch data
     const fetchSongs = async () => {
       try {
         const response = await fetch('https://itunes.apple.com/search?term=christian&media=music&limit=10');
@@ -21,21 +20,19 @@ const SongsPage = () => {
       }
     };
 
-    fetchSongs(); // Call the fetch function
-  }, []); // Empty dependency array to run the effect only once
+    fetchSongs();
+  }, []);
 
-  // Handle loading state
   if (loading) {
-    return <div>Loading songs...</div>;
+    return <div className="songs-page-container">Loading songs...</div>;
   }
 
-  // Handle error state
   if (error) {
-    return <div>{error}</div>;
+    return <div className="songs-page-container">{error}</div>;
   }
 
   return (
-    <div>
+    <div className="songs-page-container">
       <h1>Uplifting Spirit Songs</h1>
       <ul>
         {songs.map((song) => (

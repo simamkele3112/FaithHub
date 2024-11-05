@@ -1,0 +1,43 @@
+/* SongsPage.css */
+
+.songs-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  .songs-page-container h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .songs-page-container div {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 50px;
+  }
+  
+  .songs-page-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .songs-page-container li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .songs-page-container a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .songs-page-container a:hover {
+    color: #2980b9;
+  }
+  

@@ -1,4 +1,6 @@
+// Pages/BooksPage.js
 import React, { useState, useEffect } from 'react';
+import './BooksPage.css';  // Import the CSS file
 
 const BooksPage = () => {
   const [books, setBooks] = useState([]);
@@ -28,9 +30,9 @@ const BooksPage = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
+    <div className="books-page">
       <h1>Free Books on Love (Open Library)</h1>
-      <ul>
+      <ul className="books-list">
         {books.map((book) => (
           <li key={book.key}>
             <a href={`https://openlibrary.org${book.key}`} target="_blank" rel="noopener noreferrer">
@@ -44,4 +46,3 @@ const BooksPage = () => {
 };
 
 export default BooksPage;
-

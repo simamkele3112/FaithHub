@@ -1,0 +1,58 @@
+/* TopicsPage.css */
+
+/* Container for the page */
+.topics-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Header styling */
+  .topics-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  /* List styling */
+  .topics-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* List item styling */
+  .topics-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Hover effect for list items */
+  .topics-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Heading inside each topic item */
+  .topics-list h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  /* Paragraph styling */
+  .topics-list p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  

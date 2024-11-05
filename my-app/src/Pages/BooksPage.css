@@ -1,0 +1,57 @@
+/* BooksPage.css */
+
+/* Main container for the page */
+.books-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Page header styling */
+  .books-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #34495e;
+    border-bottom: 2px solid #34495e;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  /* List styling */
+  .books-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  /* Individual book item styling */
+  .books-list li {
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Hover effect for list items */
+  .books-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Link styling for book title and author */
+  .books-list a {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    text-decoration: none;
+  }
+  
+  .books-list a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+  
