@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Your Company</p>
+      <p>&copy; SoulSpace- Created by Simamkele Nkqayini (2024)</p>
       <div className="social-icons">
         <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-facebook"></i>
